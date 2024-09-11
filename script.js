@@ -27,6 +27,12 @@ for(let i = 0; i < num * num; i++){
     div.style.height = `calc(${height} / ${num})`
     div.style.width = `calc(${width} / ${num})`
     div.style.boxShadow = '0px 0px 0px 1px black inset';
+    div.addEventListener('mouseover', function(){
+        div.style.backgroundColor = randomColor()
+     })
     container.appendChild(div);
    
 }
+
+
+
