@@ -6,7 +6,7 @@ let pageBody = document.querySelector('body');
 pageBody.appendChild(pageTitle)
 
 let container = document.querySelector('#container')
-let width = '500px'
+let width = '600px'
 let height = '500px'
 container.style.width = `${width}`;
 container.style.height = `${height}`;
@@ -14,11 +14,20 @@ container.style.margin = 'auto';
 pageBody.insertBefore(pageTitle, container);
 container.style.display = 'flex';
 container.style.flexWrap = 'wrap'
-let num = 19
+let num = 10
+
+let randomColorButton = document.createElement('button');
+randomColorButton.textContent = 'Multiple Colors'
+pageBody.insertBefore(randomColorButton, container);
+
+// randomColorButton.addEventListener('click', function(){
+//     pageBody.style.backgroundColor = 'green'
+// })
 
 function randomColor(){
     let color = ['orange', 'green', 'pink', 'purple', 'green', 'blue', 'black', 'gray', 'yellow', 'skyblue'];
     let randomValue = Math.floor(Math.random() * color.length)
+    console.log(color[randomValue])
     return color[randomValue]
 }
 
@@ -27,9 +36,16 @@ for(let i = 0; i < num * num; i++){
     div.style.height = `calc(${height} / ${num})`
     div.style.width = `calc(${width} / ${num})`
     div.style.boxShadow = '0px 0px 0px 1px black inset';
-    div.addEventListener('mouseover', function(){
-        div.style.backgroundColor = randomColor()
-     })
+
+    randomColorButton.addEventListener('click', function(){
+        div.addEventListener('mouseover', function(){
+             div.style.backgroundColor = randomColor()
+         })
+    })
+
+   
+   
+
     container.appendChild(div);
    
 }
