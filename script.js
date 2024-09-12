@@ -41,6 +41,11 @@ function singleColor(i){
     return color
 }
 
+let clearButton = document.createElement('button');
+clearButton.textContent = 'Clear Single Boxes';
+pageBody.insertBefore(clearButton, container);
+
+
 console.log(singleColor())
 for(let i = 0; i < num * num; i++){
     let div = document.createElement('div');
@@ -60,6 +65,12 @@ for(let i = 0; i < num * num; i++){
         })
     })
    
+    clearButton.addEventListener('click', function(){
+        div.addEventListener('mouseover', function(){
+            div.style.backgroundColor = ''
+        })
+    })
+  
 
     container.appendChild(div);
    
