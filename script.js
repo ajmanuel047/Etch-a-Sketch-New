@@ -45,8 +45,10 @@ let clearButton = document.createElement('button');
 clearButton.textContent = 'Clear Single Boxes';
 pageBody.insertBefore(clearButton, container);
 
+let clearAllBoxes = document.createElement('button');
+clearAllBoxes.textContent = 'Clear All Colors';
+pageBody.insertBefore(clearAllBoxes, container)
 
-console.log(singleColor())
 for(let i = 0; i < num * num; i++){
     let div = document.createElement('div');
     div.style.height = `calc(${height} / ${num})`
@@ -71,6 +73,9 @@ for(let i = 0; i < num * num; i++){
         })
     })
   
+    clearAllBoxes.addEventListener('click', function(){
+        div.style.backgroundColor = ''
+    })
 
     container.appendChild(div);
    
