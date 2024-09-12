@@ -31,6 +31,17 @@ function randomColor(){
     return color[randomValue]
 }
 
+let singleColorButton = document.createElement('button');
+singleColorButton.textContent = 'Single Colors'
+pageBody.insertBefore(singleColorButton, container)
+
+function singleColor(i){
+    let color = 'yellow';
+    console.log(color) 
+    return color
+}
+
+console.log(singleColor())
 for(let i = 0; i < num * num; i++){
     let div = document.createElement('div');
     div.style.height = `calc(${height} / ${num})`
@@ -43,7 +54,11 @@ for(let i = 0; i < num * num; i++){
          })
     })
 
-   
+    singleColorButton.addEventListener('click', function(){
+        div.addEventListener('mouseover', function(){
+            div.style.backgroundColor = singleColor()
+        })
+    })
    
 
     container.appendChild(div);
