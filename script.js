@@ -19,6 +19,11 @@ let num = 10
 let parentButtonDiv = document.createElement('div');
 pageBody.insertBefore(parentButtonDiv, container)
 
+// let numberOfBoxes = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', '10')
+let numberOfBoxesButton = document.createElement('button');
+numberOfBoxesButton.textContent = 'Box Numbers';
+parentButtonDiv.appendChild(numberOfBoxesButton)
+
 let randomColorButton = document.createElement('button');
 randomColorButton.textContent = 'Multiple Colors'
 pageBody.insertBefore(randomColorButton, container);
@@ -45,17 +50,18 @@ function singleColor(i){
 }
 
 let clearButton = document.createElement('button');
-clearButton.textContent = 'Clear Single Boxes';
+clearButton.textContent = 'Clear Single';
 pageBody.insertBefore(clearButton, container);
 
 parentButtonDiv.appendChild(clearButton)
 
 let clearAllBoxes = document.createElement('button');
-clearAllBoxes.textContent = 'Clear All Colors';
+clearAllBoxes.textContent = 'Clear All';
 pageBody.insertBefore(clearAllBoxes, container)
 
 parentButtonDiv.appendChild(clearAllBoxes)
-parentButtonDiv.style.width = '90%'
+parentButtonDiv.style.width = '100%'
+parentButtonDiv.style.minWidth = '660px'
 parentButtonDiv.style.textAlign = 'center'
 parentButtonDiv.style.margin = 'auto'
 parentButtonDiv.style.height = '30px'
@@ -69,7 +75,8 @@ arr.map((elements) => {
     elements.style.border = '1px solid black';
     elements.style.marginRight = '10px';
     elements.style.marginTop = '-6px';
-    elements.style.width = '20%';
+    elements.style.width = '15%';
+    elements.style.fontSize = '12px'
     elements.addEventListener('mouseover', () => {
         elements.style.backgroundColor = 'lightgray'
     })
