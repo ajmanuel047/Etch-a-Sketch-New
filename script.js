@@ -66,9 +66,22 @@ let arr = Array.from(buttonBoxes)
 
 arr.map((elements) => {
     elements.style.height = '30px';
-    elements.style.border = '1px solid black'
-    elements.style.marginRight = '10px'
-    elements.style.width = '150px'
+    elements.style.border = '1px solid black';
+    elements.style.marginRight = '10px';
+    elements.style.marginTop = '-6px';
+    elements.style.width = '150px';
+    elements.addEventListener('mouseover', () => {
+        elements.style.backgroundColor = 'lightgray'
+    })
+    elements.addEventListener('mouseout', () => {
+        elements.style.backgroundColor = ''
+    })
+    elements.addEventListener('click', () => {
+        elements.style.transform = 'scale(0.92)' 
+        setTimeout(() => {
+            elements.style.transform = 'scale(1)'
+        })        
+    })
 })
 
 for(let i = 0; i < num * num; i++){
