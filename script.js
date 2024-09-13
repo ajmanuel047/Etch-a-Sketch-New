@@ -69,7 +69,7 @@ arr.map((elements) => {
     elements.style.border = '1px solid black';
     elements.style.marginRight = '10px';
     elements.style.marginTop = '-6px';
-    elements.style.width = '150px';
+    elements.style.width = '20%';
     elements.addEventListener('mouseover', () => {
         elements.style.backgroundColor = 'lightgray'
     })
@@ -77,7 +77,7 @@ arr.map((elements) => {
         elements.style.backgroundColor = ''
     })
     elements.addEventListener('click', () => {
-        elements.style.transform = 'scale(0.92)' 
+        elements.style.transform = 'scale(0.97)' 
         setTimeout(() => {
             elements.style.transform = 'scale(1)'
         })        
@@ -109,7 +109,10 @@ for(let i = 0; i < num * num; i++){
     })
   
     clearAllBoxes.addEventListener('click', function(){
-        div.style.backgroundColor = ''
+        div.style.backgroundColor = '';
+        div.addEventListener('mouseover', function (){
+            div.style.backgroundColor = ''
+        })
     })
 
     container.appendChild(div);
