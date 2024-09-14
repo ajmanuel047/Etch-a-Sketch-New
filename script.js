@@ -127,55 +127,56 @@ let createDivs = () => {
 createDivs()
 
 numberOfBoxesButton.addEventListener('click', function(){
-    container.remove()
-
+    document.getElementById('container').remove()
+    let container = document.createElement('div')
+    container.setAttribute('id', 'container')
+    container.style.width = `${width}`;
+    container.style.height = `${height}`;
+    container.style.margin = 'auto';
+    container.style.display = 'flex';
+    container.style.flexWrap = 'wrap'
+    container.style.backgroundColor = 'blue'
+    pageBody.appendChild(container)
     let num = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 100')
-    let newContainer = document.createElement('div')
-    newContainer.classList.add('container')
-    newContainer.style.width = `${width}`;
-    newContainer.style.height = `${height}`;
-    newContainer.style.backgroundColor = 'blue'
-    newContainer.style.margin = 'auto';
-    newContainer.style.display = 'flex';
-    newContainer.style.flexWrap = 'wrap'
-    pageBody.appendChild(newContainer)
-    numberOfBoxesButton.disabled = 'true'
-    numberOfBoxesButton.style.border = 'none'
+   console.log(num)
+   function createDivs(){
+  
+    for(let i = 0; i < num * num; i++){
+        let div = document.createElement('div');
+        div.style.height = `calc(${height} / ${num})`
+        div.style.width = `calc(${width} / ${num})`
+        div.style.boxShadow = '0px 0px 0px 1px black inset';
+        
+        randomColorButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                 div.style.backgroundColor = randomColor()
+             })
+        })
     
-    function newDiv () {
-        
-        for(let i = 0; i < num * num; i++){
-            let div = document.createElement('div');
-            div.style.height = `calc(${height} / ${num})`
-            div.style.width = `calc(${width} / ${num})`
-            div.style.boxShadow = '0px 0px 0px 1px black inset';
-            
-            randomColorButton.addEventListener('click', function(){
-                div.addEventListener('mouseover', function(){
-                     div.style.backgroundColor = randomColor()
-                 })
+        singleColorButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                div.style.backgroundColor = singleColor()
             })
-        
-            singleColorButton.addEventListener('click', function(){
-                div.addEventListener('mouseover', function(){
-                    div.style.backgroundColor = singleColor()
-                })
+        })
+       
+        clearButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                div.style.backgroundColor = ''
             })
-           
-            clearButton.addEventListener('click', function(){
-                div.addEventListener('mouseover', function(){
-                    div.style.backgroundColor = ''
-                })
+        })
+      
+        clearAllBoxes.addEventListener('click', function(){
+            div.style.backgroundColor = '';
+            div.addEventListener('mouseover', function (){
+                div.style.backgroundColor = ''
             })
-          
-            clearAllBoxes.addEventListener('click', function(){
-                div.style.backgroundColor = '';
-                div.addEventListener('mouseover', function (){
-                    div.style.backgroundColor = ''
-                })
-            })
-            newContainer.appendChild(div);
-        } 
-    }
-newDiv()
+        })
+        container.appendChild(div);
+    } 
+}
+createDivs()
 })
+
+// boxes function not yet perfect as it seems you can only use it 
+// ones
+// using it again creates a new one down which is not what you want
