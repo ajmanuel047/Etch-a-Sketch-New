@@ -14,12 +14,10 @@ container.style.margin = 'auto';
 pageBody.insertBefore(pageTitle, container);
 container.style.display = 'flex';
 container.style.flexWrap = 'wrap'
-let num = 10
 
 let parentButtonDiv = document.createElement('div');
 pageBody.insertBefore(parentButtonDiv, container)
 
-// let numberOfBoxes = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', '10')
 let numberOfBoxesButton = document.createElement('button');
 numberOfBoxesButton.textContent = 'Box Numbers';
 parentButtonDiv.appendChild(numberOfBoxesButton)
@@ -91,40 +89,93 @@ arr.map((elements) => {
     })
 })
 
-for(let i = 0; i < num * num; i++){
-    let div = document.createElement('div');
-    div.style.height = `calc(${height} / ${num})`
-    div.style.width = `calc(${width} / ${num})`
-    div.style.boxShadow = '0px 0px 0px 1px black inset';
+let createDivs = () => {
+    let num = 10
+    for(let i = 0; i < num * num; i++){
+        let div = document.createElement('div');
+        div.style.height = `calc(${height} / ${num})`
+        div.style.width = `calc(${width} / ${num})`
+        div.style.boxShadow = '0px 0px 0px 1px black inset';
+        
+        randomColorButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                 div.style.backgroundColor = randomColor()
+             })
+        })
     
-    randomColorButton.addEventListener('click', function(){
-        div.addEventListener('mouseover', function(){
-             div.style.backgroundColor = randomColor()
-         })
-    })
-
-    singleColorButton.addEventListener('click', function(){
-        div.addEventListener('mouseover', function(){
-            div.style.backgroundColor = singleColor()
+        singleColorButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                div.style.backgroundColor = singleColor()
+            })
         })
-    })
-   
-    clearButton.addEventListener('click', function(){
-        div.addEventListener('mouseover', function(){
-            div.style.backgroundColor = ''
+       
+        clearButton.addEventListener('click', function(){
+            div.addEventListener('mouseover', function(){
+                div.style.backgroundColor = ''
+            })
         })
-    })
-  
-    clearAllBoxes.addEventListener('click', function(){
-        div.style.backgroundColor = '';
-        div.addEventListener('mouseover', function (){
-            div.style.backgroundColor = ''
+      
+        clearAllBoxes.addEventListener('click', function(){
+            div.style.backgroundColor = '';
+            div.addEventListener('mouseover', function (){
+                div.style.backgroundColor = ''
+            })
         })
-    })
-
-    container.appendChild(div);
-   
+        container.appendChild(div);
+    } 
 }
+createDivs()
 
+numberOfBoxesButton.addEventListener('click', function(){
+    container.remove()
 
-// contine from creating parentDiv so you can center your buttons
+    let num = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 100')
+    let newContainer = document.createElement('div')
+    newContainer.classList.add('container')
+    newContainer.style.width = `${width}`;
+    newContainer.style.height = `${height}`;
+    newContainer.style.backgroundColor = 'blue'
+    newContainer.style.margin = 'auto';
+    newContainer.style.display = 'flex';
+    newContainer.style.flexWrap = 'wrap'
+    pageBody.appendChild(newContainer)
+    numberOfBoxesButton.disabled = 'true'
+    numberOfBoxesButton.style.border = 'none'
+    
+    function newDiv () {
+        
+        for(let i = 0; i < num * num; i++){
+            let div = document.createElement('div');
+            div.style.height = `calc(${height} / ${num})`
+            div.style.width = `calc(${width} / ${num})`
+            div.style.boxShadow = '0px 0px 0px 1px black inset';
+            
+            randomColorButton.addEventListener('click', function(){
+                div.addEventListener('mouseover', function(){
+                     div.style.backgroundColor = randomColor()
+                 })
+            })
+        
+            singleColorButton.addEventListener('click', function(){
+                div.addEventListener('mouseover', function(){
+                    div.style.backgroundColor = singleColor()
+                })
+            })
+           
+            clearButton.addEventListener('click', function(){
+                div.addEventListener('mouseover', function(){
+                    div.style.backgroundColor = ''
+                })
+            })
+          
+            clearAllBoxes.addEventListener('click', function(){
+                div.style.backgroundColor = '';
+                div.addEventListener('mouseover', function (){
+                    div.style.backgroundColor = ''
+                })
+            })
+            newContainer.appendChild(div);
+        } 
+    }
+newDiv()
+})
