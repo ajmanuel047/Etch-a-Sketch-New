@@ -89,9 +89,10 @@ arr.map((elements) => {
     })
 })
 
-let createDivs = () => {
-    let num = 10
+
+function createDivs(num = 10) {
     for(let i = 0; i < num * num; i++){
+        console.log(num)
         let div = document.createElement('div');
         div.style.height = `calc(${height} / ${num})`
         div.style.width = `calc(${width} / ${num})`
@@ -121,13 +122,13 @@ let createDivs = () => {
                 div.style.backgroundColor = ''
             })
         })
-        container.appendChild(div);
+        document.getElementById('container').appendChild(div);
+
     } 
 }
 createDivs()
 
-numberOfBoxesButton.addEventListener('click', function(){
-    document.getElementById('container').remove()
+function newContainer (){
     let container = document.createElement('div')
     container.setAttribute('id', 'container')
     container.style.width = `${width}`;
@@ -137,46 +138,17 @@ numberOfBoxesButton.addEventListener('click', function(){
     container.style.flexWrap = 'wrap'
     container.style.backgroundColor = 'blue'
     pageBody.appendChild(container)
-    let num = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 100')
-   console.log(num)
-   function createDivs(){
-  
-    for(let i = 0; i < num * num; i++){
-        let div = document.createElement('div');
-        div.style.height = `calc(${height} / ${num})`
-        div.style.width = `calc(${width} / ${num})`
-        div.style.boxShadow = '0px 0px 0px 1px black inset';
-        
-        randomColorButton.addEventListener('click', function(){
-            div.addEventListener('mouseover', function(){
-                 div.style.backgroundColor = randomColor()
-             })
-        })
-    
-        singleColorButton.addEventListener('click', function(){
-            div.addEventListener('mouseover', function(){
-                div.style.backgroundColor = singleColor()
-            })
-        })
-       
-        clearButton.addEventListener('click', function(){
-            div.addEventListener('mouseover', function(){
-                div.style.backgroundColor = ''
-            })
-        })
-      
-        clearAllBoxes.addEventListener('click', function(){
-            div.style.backgroundColor = '';
-            div.addEventListener('mouseover', function (){
-                div.style.backgroundColor = ''
-            })
-        })
-        container.appendChild(div);
-    } 
 }
-createDivs()
+
+numberOfBoxesButton.addEventListener('click', function(){
+    document.getElementById('container').remove()
+    let result = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 100')
+    let num = Number(result)
+    console.log(typeof num)
+    newContainer()
+    createDivs(num)
 })
 
-// boxes function not yet perfect as it seems you can only use it 
-// ones
-// using it again creates a new one down which is not what you want
+// you are trying to make the code shorter
+// num is reading in the console but for some reason it is not being rendered
+
