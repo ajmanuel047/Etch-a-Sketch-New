@@ -141,14 +141,29 @@ function newContainer (){
     pageBody.appendChild(container)
 }
 
-numberOfBoxesButton.addEventListener('click', function(){
-    document.getElementById('container').remove()
-    let result = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 100')
-    let num = Number(result)
-    console.log(typeof num)
-    newContainer()
-    createDivs(num)
+numberOfBoxesButton.addEventListener('click', function(){   
+    let result = prompt('Enter Number Of Boxes To Be On Both Length And Breath i.e Above 1', 'Must Be Less Than 101 And Greater Than 0')
+    if(Number(result) && result > 0 && result < 101){
+        document.getElementById('container').remove()
+        let num = Number(result)
+        console.log(typeof num)
+        newContainer()
+        createDivs(num)
+    }else if(result < 0 || result > 100){
+        alert('Number Must Be Greater Than 0 And Less Than 101')
+    }
+    else if(result == ''){
+        alert('Please Enter A Number')
+    }
+    else {
+        alert('Please Enter A Number')
+    }
 })
+
+// let num = Number(result)
+// console.log(typeof num)
+// newContainer()
+// createDivs(num)
 
 // you are trying to make the code shorter
 // num is reading in the console but for some reason it is not being rendered
