@@ -136,7 +136,6 @@ function newContainer (){
     container.style.margin = 'auto';
     container.style.display = 'flex';
     container.style.flexWrap = 'wrap'
-    container.style.backgroundColor = 'blue'
     pageBody.appendChild(container)
 }
 
