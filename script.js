@@ -1,8 +1,11 @@
 let pageTitle = document.createElement('h1');
 pageTitle.textContent = 'Etch A Sketch';
+pageTitle.style.fontFamily = 'Courier New, Courier, monospace';
+pageTitle.style.marginTop = '-2px'
 pageTitle.style.textAlign = 'center';
 
 let pageBody = document.querySelector('body');
+pageBody.style.backgroundColor = 'snow'
 pageBody.appendChild(pageTitle)
 
 let container = document.querySelector('#container')
@@ -41,11 +44,11 @@ pageBody.insertBefore(singleColorButton, container)
 
 parentButtonDiv.appendChild(singleColorButton)
 
-function singleColor(i){
-    let color = 'yellow';
-    console.log(color) 
-    return color
-}
+// function singleColor(i){
+//     let color = prompt('Input the name of a color');
+//     console.log(color) 
+//     return color
+// }
 
 let clearButton = document.createElement('button');
 clearButton.textContent = 'Clear Single';
@@ -89,7 +92,6 @@ arr.map((elements) => {
     })
 })
 
-
 function createDivs(num = 10) {
     for(let i = 0; i < num * num; i++){
         console.log(num)
@@ -106,7 +108,7 @@ function createDivs(num = 10) {
     
         singleColorButton.addEventListener('click', function(){
             div.addEventListener('mouseover', function(){
-                div.style.backgroundColor = singleColor()
+                div.style.backgroundColor = 'yellow'
             })
         })
        
